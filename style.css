@@ -1,0 +1,407 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap");
+
+
+
+
+/*=============== VARIABLES CSS ===============*/
+
+:root {
+
+  /*========== Colores ==========*/
+
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --first-color: hsl(82, 60%, 28%);
+  --title-color: hsl(0, 0%, 15%);
+  --text-color: hsl(0, 0%, 35%);
+  --body-color: hsl(0, 0%, 95%);
+  --container-color: hsl(0, 0%, 100%);
+
+  /*========== Fuente y tipografia ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "Poppins", sans-serif;
+  --h2-font-size: 1.25rem;
+  --small-font-size: .813rem;
+}
+
+/*========== Responsive tipografia ==========*/
+@media screen and (min-width: 1120px) {
+  :root {
+    --h2-font-size: 1.5rem;
+    --small-font-size: .875rem;
+  }
+}
+
+/*========= Estilos botones =========*/
+
+.cont-boton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  ;
+}
+
+.botones {
+  background-color: #438e96;
+  color: #FAFAFA;
+  font-family: var(--body-font);
+  font-size: 12px;
+  padding: 10px 20px;
+  border: none;
+  margin: 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.botones:hover {
+  background-color: #3b757f;
+}
+
+.botones:active {
+  background-color: #356069;
+}
+
+
+/*=============== LOGO ===============*/
+
+.logo {
+  display: flex;
+  background-color: transparent;
+  border-radius: 50px;
+  max-width: 50px;
+  max-height: 50px;
+  margin-top: 10px;
+  margin-left: 30px;
+  filter: invert(1);
+}
+
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: var(--body-font);
+  background-color: var(--body-color);
+  color: var(--text-color);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/*=============== H1 ===============*/
+
+.text-center {
+  text-align: center;
+  margin: 40px 0px;
+}
+
+.destacado {
+  display: flex;
+  background-color: #222;
+  color: #fff;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  font-size: 30px;
+}
+
+.card-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+/*=============== BUSCADOR ===============*/
+
+.buscar {
+  display: inline-block;
+  position: relative;
+  padding: 5px 24px 5px 56px;
+  ;
+  font-weight: 500;
+  line-height: 35px;
+  border: 0 solid #e5e7eb;
+  background-color: transparent;
+  border-radius: 9999px;
+  border-color: #52525b;
+  border-width: 1px;
+  color: var(--text-color);
+  max-width: 28rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.buscar:focus {
+  outline: #f2f9f9;
+  border-color: #f2f9f9;
+}
+
+.contenedor {
+  display: flex;
+  position: relative;
+}
+
+.buscador {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.buscador1 {
+  display: inline;
+}
+
+
+/*=============== CARD ===============*/
+.container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-rows: auto;
+  justify-items: center;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  gap: 30px 100px;
+  margin: 20px 10px;
+}
+
+
+.card__container {
+  display: grid;
+  row-gap: 2.5rem;
+}
+
+.card__article {
+  position: relative;
+  overflow: hidden;
+}
+
+.card__img {
+  width: 328px;
+  border-radius: 1.5rem;
+  object-fit: contain;
+}
+
+.card__data {
+  width: 280px;
+  background-color: var(--container-color);
+  padding: 1.5rem 2rem;
+  box-shadow: 0 8px 24px hsla(0, 0%, 0%, .15);
+  border-radius: 1rem;
+  position: absolute;
+  bottom: -9rem;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  opacity: 0;
+  transition: opacity 1s 1s;
+}
+
+.card__description {
+  display: block;
+  font-size: var(--small-font-size);
+  margin-bottom: .25rem;
+}
+
+.card__title {
+  font-size: var(--h2-font-size);
+  font-weight: 500;
+  color: var(--title-color);
+  margin-bottom: .75rem;
+}
+
+.card__button {
+  text-decoration: none;
+  font-size: var(--small-font-size);
+  font-weight: 500;
+  color: var(--first-color);
+}
+
+.card__button:hover {
+  text-decoration: underline;
+}
+
+/* Nombrar animaciones al pasar el mouse */
+.card__article:hover .card__data {
+  animation: show-data 1s forwards;
+  opacity: 1;
+  transition: opacity .3s;
+}
+
+.card__article:hover {
+  animation: remove-overflow 2s forwards;
+}
+
+.card__article:not(:hover) {
+  animation: show-overflow 2s forwards;
+}
+
+.card__article:not(:hover) .card__data {
+  animation: remove-data 1s forwards;
+}
+
+/* Card animacion */
+@keyframes show-data {
+  50% {
+    transform: translateY(-10rem);
+  }
+
+  100% {
+    transform: translateY(-7rem);
+  }
+}
+
+@keyframes remove-overflow {
+  to {
+    overflow: initial;
+  }
+}
+
+@keyframes remove-data {
+  0% {
+    transform: translateY(-7rem);
+  }
+
+  50% {
+    transform: translateY(-10rem);
+  }
+
+  100% {
+    transform: translateY(.5rem);
+  }
+}
+
+@keyframes show-overflow {
+  0% {
+    overflow: initial;
+    pointer-events: none;
+  }
+
+  50% {
+    overflow: hidden;
+  }
+}
+
+
+
+/*=============== BREAKPOINTS ===============*/
+
+/* Para dispositivos pequeños*/
+@media screen and (max-width: 340px) {
+  .container {
+    margin-inline: 1rem;
+  }
+
+  .card__data {
+    width: 250px;
+    padding: 1rem;
+  }
+}
+
+/* Para dispositivos medianos */
+@media screen and (min-width: 768px) {
+  .card__container {
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1.5rem;
+  }
+}
+
+/* Para dispositivos grandes */
+@media screen and (min-width: 1120px) {
+  /* .container {
+    height: 100vh;
+  } */
+
+  .card__container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .card__img {
+    width: 348px;
+  }
+
+  .card__data {
+    width: 316px;
+    padding-inline: 2.5rem;
+  }
+}
+
+
+/*=============== SECCION MEJOR PRODUCTO ===============*/
+
+.comparison-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 20px;
+}
+
+.mejor-producto {
+  background-color: #f8f9fa;
+  border: 2px solid #284765;
+  border-radius: 8px;
+  padding: 15px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.product-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 100%;
+  max-width: 300px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+.product-image {
+  width: 100%;
+  height: auto;
+}
+
+.product-info {
+  padding: 1rem;
+}
+
+.product-info h3 {
+  margin: 0 0 0.5rem;
+}
+
+
+@media (min-width: 600px) {
+  .product-card {
+    flex: 1;
+  }
+}
+
+
+/*=============== FOOTER ===============*/
+
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.redes a .linkedin {
+  display: flex;
+  justify-content: flex-end;
+  width: 24px;
+  height: 24px;
+  margin: 0 10px;
+}
